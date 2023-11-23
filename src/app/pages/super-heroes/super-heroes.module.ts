@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {SuperHeroesComponent} from "./super-heroes.component";
 import {RouterModule} from "@angular/router";
+import {MatTableModule} from "@angular/material/table";
 
 @NgModule({
   declarations: [SuperHeroesComponent],
@@ -16,7 +17,8 @@ import {RouterModule} from "@angular/router";
           robots: 'noindex, nofollow',
         },
       },
-    ])
+    ]),
+    MatTableModule
   ],
 })
 export class SuperHeroesModule { }
