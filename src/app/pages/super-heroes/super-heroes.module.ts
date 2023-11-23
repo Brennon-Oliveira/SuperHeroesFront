@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import {SuperHeroesComponent} from "./super-heroes.component";
 import {RouterModule} from "@angular/router";
 import {MatTableModule} from "@angular/material/table";
+import {HttpClientModule} from "@angular/common/http";
+import {SuperHeroesService} from "../../@core/services/super-heroes.service";
 
 @NgModule({
   declarations: [SuperHeroesComponent],
@@ -18,7 +20,11 @@ import {MatTableModule} from "@angular/material/table";
         },
       },
     ]),
-    MatTableModule
+    MatTableModule,
+    HttpClientModule,
+  ],
+  providers: [
+    SuperHeroesService
   ],
 })
 export class SuperHeroesModule { }
