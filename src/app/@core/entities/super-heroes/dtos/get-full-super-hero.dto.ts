@@ -1,5 +1,7 @@
 import Dto from "../../Dto";
 import {SuperHeroEntity} from "../super-hero.entity";
+import {SuperPowerEntity} from "../../super-powers/super-power.entity";
+import {GetFullSuperPowerDto} from "../../super-powers/dtos/get-full-super-power.dto";
 
 type IGetFullSuperHeroDto = SuperHeroEntity;
 
@@ -8,6 +10,7 @@ export class GetFullSuperHeroDto implements IGetFullSuperHeroDto {
     id: number = 0;
     name: string = '';
     birthDate: Date = new Date();
-    Height: number = 0;
-    Weight: number = 0;
+    height: number = 0;
+    weight: number = 0;
+    superPowers: Array<{superPowers: GetFullSuperPowerDto}> = [];
 }
