@@ -1,0 +1,8 @@
+
+<label>
+  <mat-icon *ngIf="!loading; else loadingElse">search</mat-icon>
+  <ng-template #loadingElse>
+    <mat-spinner diameter="20"></mat-spinner>
+  </ng-template>
+  <input (keyup)="keyUp($event)" (keydown)="keyUp($event)" type="text" placeholder="Search" />
+</label>

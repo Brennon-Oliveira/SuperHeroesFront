@@ -1,0 +1,50 @@
+<form [formGroup]="group">
+    <h2>{{data?.id ? "Editar" :"Adicionar" }} herói</h2>
+    <mat-form-field>
+        <input formControlName="heroName" matInput placeholder="Nome do herói">
+        <mat-error *ngIf="abstractControlToFormControl(group.controls['heroName']).invalid">Campo obrigatório</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input formControlName="name" matInput placeholder="Nome real">
+        <mat-error *ngIf="abstractControlToFormControl(group.controls['name']).invalid">Campo obrigatório</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input formControlName="birthDate" matInput [matDatepicker]="picker" placeholder="Choose a date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="abstractControlToFormControl(group.controls['birthDate']).getError('matDatepickerParse')">Insira uma data válida</mat-error>
+        <mat-error *ngIf="abstractControlToFormControl(group.controls['birthDate']).getError('required')">Campo obrigatório</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input formControlName="height" matInput placeholder="Altura" appTwoDigitDecimaNumber>
+        <mat-error *ngIf="abstractControlToFormControl(group.controls['height']).invalid">Campo obrigatório</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input formControlName="weight" matInput placeholder="Peso" appTwoDigitDecimaNumber>
+        <mat-error *ngIf="abstractControlToFormControl(group.controls['weight']).invalid">Campo obrigatório</mat-error>
+    </mat-form-field>
+    <div class="powers-container">
+        <div class="chips">
+            <mat-chip
+                    *ngFor="let power of chips"
+                    [removable]="removable"
+                    (removed)="remove(power.id)"
+                    [matTooltip]="power.description || 'Sem descrição'"
+            >
+                {{power.name}}
+                <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+            </mat-chip>
+        </div>
+        <mat-form-field>
+            <mat-select (selectionChange)="add($event)" [(ngModel)]="selectPowerValue" placeholder="Adicionar poder">
+                <mat-option *ngFor="let power of powers" [value]="power.id">
+                    {{power.name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <button (click)="save()" class="flex items-center bg-blue-900 hover:bg-blue-950 text-white py-2 px-4 rounded">
+        <span>SALVAR</span>
+    </button>
+</form>
