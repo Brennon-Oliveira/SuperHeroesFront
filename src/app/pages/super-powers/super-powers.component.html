@@ -7,7 +7,7 @@
     </div>
     <button (click)="newPower()" class="flex items-center bg-blue-900 hover:bg-blue-950 text-white py-2 px-4 rounded">
         <mat-icon fontSet="material-icons-outlined">add</mat-icon>
-        <span>ADICIONAR NOVO HERÓI</span>
+        <span>ADICIONAR NOVO PODER</span>
     </button>
   </header>
   <div class="table-container">
@@ -67,7 +67,7 @@
     </ng-template>
     <div class="no-data" *ngIf="!loading && powers.length === 0">
       <mat-icon fontSet="material-icons-outlined">sentiment_dissatisfied</mat-icon>
-      <p>Nenhum herói encontrado</p>
+      <p>Nenhum poder encontrado</p>
     </div>
   </div>
 </section>

@@ -102,7 +102,7 @@ export class SuperPowerModalComponent implements OnInit{
     this.superPowersService.createSuperPower(superPower).subscribe(
         {
           next: (response) => {
-            this.toastr.success('Herói criado com sucesso!');
+            this.toastr.success('Poder criado com sucesso!');
             this.loading = false;
             this.dialogRef.close()
           },
@@ -129,7 +129,7 @@ export class SuperPowerModalComponent implements OnInit{
     this.superPowersService.updateSuperPower(superPower).subscribe(
         {
           next: (response) => {
-            this.toastr.success('Herói atualizado com sucesso!');
+            this.toastr.success('Poder atualizado com sucesso!');
             this.loading = false;
             this.dialogRef.close()
           },

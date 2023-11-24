@@ -113,7 +113,7 @@ export class SuperPowersComponent {
   deletePower(id: number){
     this.superPowersService.deleteSuperPower(id).subscribe({
         next: (response) => {
-            this.toastr.success('Super herói deletado com sucesso!');
+            this.toastr.success('Poder deletado com sucesso!');
             this.getPowers();
         },
         error: (error) => {
