@@ -1,27 +1,34 @@
-# SuperHeroes
+# Documentação do Front-end SuperHeroes
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.3.
+## Arquitetura
 
-## Development server
+A arquitetura do front-end foi projetada para facilitar o desenvolvimento de novas funcionalidades de forma simples, mas detalhada e com qualidade. O foco está na facilidade de uso, na consistência dos dados e na reutilização de código.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Tecnologias
 
-## Code scaffolding
+- Angular
+- Angular Material
+- Tailwind CSS
+- SCSS
+- TypeScript
+- HTML
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Estrutura
 
-## Build
+A estrutura do projeto é baseada em componentes, com cada componente tendo uma responsabilidade única. Isso facilita a manutenção e a adição de novas funcionalidades.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Os componentes do Angular Material e Tailwind CSS foram utilizados para a construção da interface, mas estilos personalizados foram adicionados quando necessário para garantir a consistência visual.
 
-## Running unit tests
+## Funcionamento
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Foram introduzidos conceitos como DTOs (Data Transfer Objects) e entidades para facilitar a troca e consistência dos dados trafegados pela aplicação.
 
-## Running end-to-end tests
+Utilizei estratégias como diretivas, typeFunctions e componentização (como na barra de pesquisa) para garantir a qualidade e facilidade no reaproveitamento de código.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+A tela foi otimizada para garantir uma performance satisfatória, utilizando consultas e pesquisas com paginação e organização dos dados.
 
-## Further help
+O front-end foi integrado ao back-end, suportando de forma padronizada as respostas, bem como os possíveis erros, ministrando essas informações para o usuário.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Design
+
+No design, foram aplicados conceitos de UX/UI, responsividade e reatividade para garantir conforto e retornos claros ao usuário, tornando a navegação fácil e atrativa. A interface foi projetada para ser intuitiva e visualmente agradável, proporcionando uma experiência de usuário superior.
