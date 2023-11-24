@@ -1,6 +1,6 @@
 
 export interface SuperPowerEntity {
-  id: string;
+  id: number;
   name: string;
   description: string;
 }

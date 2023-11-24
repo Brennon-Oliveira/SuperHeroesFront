@@ -2,10 +2,10 @@
 <section id="heroes">
   <header>
     <div>
-      <h2>List de heróis</h2>
+      <h2>Lista de heróis</h2>
       <app-search-bar [searchTrigger]="searchTrigger"></app-search-bar>
     </div>
-    <button class="flex items-center bg-blue-900 hover:bg-blue-950 text-white py-2 px-4 rounded">
+    <button (click)="newHero()" class="flex items-center bg-blue-900 hover:bg-blue-950 text-white py-2 px-4 rounded">
         <mat-icon fontSet="material-icons-outlined">add</mat-icon>
         <span>ADICIONAR NOVO HERÓI</span>
     </button>
@@ -73,11 +73,13 @@
             matTooltip="Editar"
             matTooltipPosition="above"
             fontSet="material-icons-outlined"
+            (click)="editHero(row.id)"
           >edit</mat-icon>
           <mat-icon
             matTooltip="Excluir"
             matTooltipPosition="above"
             fontSet="material-icons-outlined"
+            (click)="deleteHero(row.id)"
           >delete</mat-icon>
         </td>
       </ng-container>

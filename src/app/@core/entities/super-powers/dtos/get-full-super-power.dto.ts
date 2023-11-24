@@ -5,7 +5,7 @@ type IGetFullSuperPowerDto = SuperPowerEntity;
 
 @Dto()
 export class GetFullSuperPowerDto implements IGetFullSuperPowerDto {
-  id: string = '';
+  id: number = 0;
   name: string = '';
   description: string = '';
 }

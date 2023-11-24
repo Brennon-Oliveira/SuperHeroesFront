@@ -2,7 +2,7 @@
 export interface SuperHeroEntity {
   id: number;
   name: string;
-  birthDate: Date;
+  birthDate?: Date;
   height: number;
   weight: number;
 }

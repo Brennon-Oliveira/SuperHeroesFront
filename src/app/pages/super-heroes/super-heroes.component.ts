@@ -5,6 +5,8 @@ import {GetFullSuperHeroDto} from "../../@core/entities/super-heroes/dtos/get-fu
 import {MatPaginator, PageEvent} from "@angular/material/paginator";
 import {popupErrors} from "../../@core/utils/popup-errors";
 import {ToastrService} from "ngx-toastr";
+import {MatDialog} from "@angular/material/dialog";
+import {SuperHeroModalComponent} from "./super-hero-modal/super-hero-modal.component";
 
 @Component({
   selector: 'app-super-heroes',
@@ -35,7 +37,11 @@ export class SuperHeroesComponent {
 
   searchTrigger = new EventEmitter<string>();
 
-  constructor(private superHeroesService: SuperHeroesService, private toastr: ToastrService) {}
+  constructor(
+      private superHeroesService: SuperHeroesService,
+      private toastr: ToastrService,
+      private dialog: MatDialog
+  ) {}
 
   ngOnInit() {
     this.setPaginatorLabels();
@@ -90,5 +96,33 @@ export class SuperHeroesComponent {
     this.page = event.pageIndex + 1;
     this.pageSize = event.pageSize;
     this.getHeroes()
+  }
+
+  newHero(){
+    this.dialog.open(SuperHeroModalComponent).afterClosed().subscribe((result)=>{
+      this.getHeroes();
+    })
+  }
+
+  editHero(id: number){
+    this.dialog.open(SuperHeroModalComponent, {
+      data: {
+        id
+      }
+    }).afterClosed().subscribe((result)=>{
+      this.getHeroes();
+    })
+  }
+
+  deleteHero(id: number){
+    this.superHeroesService.deleteSuperHero(id).subscribe({
+        next: (response) => {
+            this.toastr.success('Super herói deletado com sucesso!');
+            this.getHeroes();
+        },
+        error: (error) => {
+            popupErrors(this.toastr, error)
+        }
+    })
   }
 }

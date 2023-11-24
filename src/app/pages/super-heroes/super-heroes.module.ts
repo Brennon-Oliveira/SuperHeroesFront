@@ -13,9 +13,14 @@ import {SearchBarComponent} from "../../@core/components/search-bar/search-bar.c
 import {ToastrModule} from "ngx-toastr";
 import {NgxSkeletonLoaderModule} from "ngx-skeleton-loader";
 import {MatButtonModule} from "@angular/material/button";
+import {MatNativeDateModule} from "@angular/material/core";
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {SuperHeroModalComponent} from "./super-hero-modal/super-hero-modal.component";
+import {MatInputModule} from "@angular/material/input";
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
-  declarations: [SuperHeroesComponent, ],
+  declarations: [SuperHeroesComponent],
   imports: [
     CommonModule,
     RouterModule.forChild([
@@ -36,10 +41,20 @@ import {MatButtonModule} from "@angular/material/button";
     MatIconModule,
     SearchBarComponent,
     NgxSkeletonLoaderModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatInputModule,
+    ReactiveFormsModule
   ],
   providers: [
-    SuperHeroesService
+    MatDatepickerModule,
+    MatNativeDateModule,
+    HttpClientModule,
+    SuperHeroesService,
   ],
+    exports: [
+        SuperHeroesComponent,
+    ]
 })
 export class SuperHeroesModule { }
